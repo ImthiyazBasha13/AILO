@@ -1,0 +1,18 @@
+:root{--bg:#f7fafc;--card:#fff;--muted:#6b7280;--accent:#1d4ed8}
+*{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+body{background:var(--bg);margin:0;padding:28px}
+.container{max-width:920px;margin:0 auto;background:var(--card);border-radius:12px;padding:28px;box-shadow:0 8px 20px rgba(15,23,42,0.06)}
+h1{margin:0 0 8px;font-size:26px}
+.hint{color:var(--muted);margin-top:0}
+label{display:block;font-size:13px;color:#374151;margin:12px 0 6px}
+input,select,button{font-size:15px;padding:10px 12px;border:1px solid #e6edf3;border-radius:8px;background:#fff}
+.row{display:flex;gap:12px}
+.col{flex:1}
+.address-row{display:flex;gap:8px;align-items:center}
+#addressInput{flex:1}
+#addressHistorySelect{width:48px}
+.actions{margin-top:16px}
+button#downloadBtn{background:var(--accent);color:#fff;border:none;padding:10px 16px;border-radius:8px;cursor:pointer}
+.status{margin-top:18px;padding:12px;border-radius:8px;background:#f3f4f6;color:#111}
+.notes{margin-top:14px;color:var(--muted);font-size:13px}
+@media(max-width:640px){.row{flex-direction:column}.address-row{flex-direction:column}.container{padding:16px}}

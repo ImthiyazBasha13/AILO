@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ERC-20 Transfers — CSV Export</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>ERC-20 Transfers — CSV Export</h1>
+
+    <p class="hint">Run this single static page (hostable on GitHub Pages). Enter an address and select network/token to export token-transfer CSVs filtered by token or date.</p>
+
+    <form id="exportForm">
+      <label for="addressInput">Address (enter full 0x... address)</label>
+      <div class="address-row">
+        <input id="addressInput" list="addressHistoryList" placeholder="0x..." required />
+        <select id="addressHistorySelect" title="Previously used addresses">
+          <option value="">⤓</option>
+        </select>
+      </div>
+      <datalist id="addressHistoryList"></datalist>
+
+      <div class="row">
+        <div class="col">
+          <label for="networkSelect">Network</label>
+          <select id="networkSelect">
+            <option value="etherscan">Ethereum (Etherscan)</option>
+            <option value="basescan">Base (BaseScan)</option>
+            <option value="arbitrum">Arbitrum (Arbiscan)</option>
+          </select>
+        </div>
+
+        <div class="col">
+          <label for="tokenSymbol">Token symbol (optional)</label>
+          <select id="tokenSymbol">
+            <option value="">— any —</option>
+            <option value="USDC">USDC</option>
+            <option value="USDT">USDT</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="contractAddress">Or token contract address (optional, preferred over symbol)</label>
+      <input id="contractAddress" placeholder="0x... (optional)" />
+
+      <div class="row">
+        <div class="col">
+          <label for="startDate">Start date (optional)</label>
+          <input id="startDate" type="date" />
+        </div>
+        <div class="col">
+          <label for="endDate">End date (optional)</label>
+          <input id="endDate" type="date" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="downloadBtn" type="submit">Download CSV</button>
+      </div>
+    </form>
+
+    <div id="statusBox" class="status">Ready.</div>
+
+    <footer class="notes">
+      Address history saved locally (per network). API keys are embedded in the client for convenience; see README for security notes.
+    </footer>
+  </main>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
