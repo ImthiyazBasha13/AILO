@@ -25,7 +25,7 @@ const addressHistoryList = document.getElementById('addressHistoryList');
 const addressHistorySelect = document.getElementById('addressHistorySelect');
 const networkSelect = document.getElementById('networkSelect');
 const tokenSymbolSelect = document.getElementById('tokenSymbol');
-const contractAddressInput = document.getElementById('contractAddress');
+const contractAddressInput = document.getElementById('contractAddress'); // may be null if commented out in HTML
 const startDateInput = document.getElementById('startDate');
 const endDateInput = document.getElementById('endDate');
 const downloadBtn = document.getElementById('downloadBtn');
@@ -186,7 +186,7 @@ form.addEventListener('submit', async (e) => {
   if(!address){ setStatus('Please enter an address.'); return; }
   const network = networkSelect.value;
   const symbol = tokenSymbolSelect.value.trim();
-  const contract = contractAddressInput.value.trim();
+  const contract = contractAddressInput && contractAddressInput.value ? contractAddressInput.value.trim() : '';
   const startTs = dateToTs(startDateInput.value, false);
   const endTs = dateToTs(endDateInput.value, true);
 
